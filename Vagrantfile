@@ -4,7 +4,6 @@
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
-
 $script = <<SCRIPT
 
 # A script to install docker.
@@ -45,11 +44,11 @@ SCRIPT
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "ubuntu-server-saucy-vagrant"
+  config.vm.box = "docker-vagrant"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  # config.vm.box_url = "http://domain.com/path/to/above.box"
+  config.vm.box_url = "https://dl.dropboxusercontent.com/sh/7rtleecfqx88990/17GLGIc5nm/ubuntu-server-saucy-vagrant.box"
 
   config.vm.hostname = "docker001"
 
