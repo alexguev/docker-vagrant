@@ -9,4 +9,4 @@ __Versions:__
 
 - Ubuntu Server 13.10
 - VirtualBox Guest Additions 4.3.2
-- Docker (latest)
+- docker (latest)
