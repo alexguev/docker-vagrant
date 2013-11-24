@@ -8,6 +8,9 @@ $script = <<SCRIPT
 
 # A script to install docker.
 
+# Install support for aufs
+sudo apt-get install -q -y linux-image-extra-`uname -r`
+
 # The username to add to the docker group will be passed as the first argument
 # to the script.  If nothing is passed, default to "vagrant".
 user="$1"
@@ -27,11 +30,6 @@ echo 'deb http://get.docker.io/ubuntu docker main' > \
 # Update remote package metadata.  'apt-get update' is idempotent.
 apt-get update -q
 
-apt-get upgrade -q -y
-
-# Install support for aufs
-sudo apt-get install linux-image-extra-`uname -r`
-
 # Copy docker config from host
 cp /vagrant/etc/default/docker /etc/default/
 
@@ -39,6 +37,9 @@ cp /vagrant/etc/default/docker /etc/default/
 apt-get install -q -y lxc-docker
 
 usermod -a -G docker "$user"
+
+#echo "Rebooting down to activate new kernel."
+#shutdown -r now
 
 SCRIPT
 
